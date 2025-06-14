@@ -264,15 +264,89 @@
             cursor: none; /* Hide default cursor */
         }
 
-        .header-photo img {
-            border-radius: 50%;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            will-change: transform;
+        /* Glassmorphism effect for header photo */
+        .header-photo {
+            position: relative;
+            display: inline-block;
         }
 
-        .header-photo img:hover {
+        .header-photo::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: linear-gradient(135deg, 
+                hsla(274, 100%, 50%, 0.873) 0%, 
+                rgba(98, 0, 255, 0.827) 50%, 
+                rgba(131, 3, 250, 0.941) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 50%;
+            border: 1px solid rgb(148, 0, 247);
+            z-index: -1;
+            box-shadow: 
+                0 8px 32px 0 rgba(61, 74, 255, 0.71),
+                inset 0 1px 0 rgba(70, 3, 255, 0.944),
+                inset 0 -1px 0 rgba(171, 8, 246, 0.778);
+            animation: glassGlow 3s ease-in-out infinite alternate;
+        }
+
+        .header-photo::after {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.03) 0%, 
+                transparent 70%);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 50%;
+            z-index: -2;
+            opacity: 0.7;
+        }
+
+        @keyframes glassGlow {
+            0% {
+                box-shadow: 
+                    0 8px 32px 0 rgba(31, 38, 135, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                box-shadow: 
+                    0 12px 40px 0 rgba(31, 38, 135, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .header-photo img {
+            position: relative;
+            z-index: 1;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-photo:hover::before {
+            animation-play-state: paused;
             transform: scale(1.05);
+            box-shadow: 
+                0 15px 45px 0 rgba(31, 38, 135, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .header-photo:hover img {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .main-menu li a {
@@ -1564,6 +1638,46 @@
                               <img src="img/portfolio/NCIIPC2.jpg" alt="CTFs" title="NCIIPC Collection [Semi-Final]" class="lazy-load" />
                             </div>
 
+                            <h4 class="name">NCIIPC Pentathon Rank 4 [Semi-Final]</h4>
+                            <span class="category">Microsoft MSRC</span>
+                          </figure>
+                          <figure class="item ctf-item" data-groups='["category_all", "category_mockups"]'>
+                            <div class="portfolio-item-img" onclick="showPortfolioPreview('img/portfolio/Pentathon.png', 'Microsoft MSRC')">
+                              <img src="img/portfolio/Pentathon.png" alt="CTFs" title="Microsoft MSRC" class="lazy-load" />
+                            </div>
+
+                            <h4 class="name">Microsoft MSRC</h4>
+                            <span class="category">Microsoft MSRC</span>
+                          </figure>
+                          <figure class="item ctf-item" data-groups='["category_all", "category_mockups"]'>
+                            <div class="portfolio-item-img" onclick="showPortfolioPreview('img/portfolio/1.jpeg', 'Microsoft MSRC')">
+                              <img src="img/portfolio/1.jpeg" alt="CTFs" title="Microsoft MSRC" class="lazy-load" />
+                            </div>
+
+                            <h4 class="name">Microsoft MSRC</h4>
+                            <span class="category">Microsoft MSRC</span>
+                          </figure>
+                          <figure class="item ctf-item" data-groups='["category_all", "category_mockups"]'>
+                            <div class="portfolio-item-img" onclick="showPortfolioPreview('img/portfolio/5.jpg', 'Microsoft MSRC')">
+                              <img src="img/portfolio/5.jpg" alt="CTFs" title="Microsoft MSRC" class="lazy-load" />
+                            </div>
+
+                            <h4 class="name">Microsoft MSRC</h4>
+                            <span class="category">Microsoft MSRC</span>
+                          </figure>
+                          <figure class="item ctf-item" data-groups='["category_all", "category_mockups"]'>
+                            <div class="portfolio-item-img" onclick="showPortfolioPreview('img/portfolio/3.jpg', 'Microsoft MSRC')">
+                              <img src="img/portfolio/3.jpg" alt="CTFs" title="Microsoft MSRC" class="lazy-load" />
+                            </div>
+                            
+                            <h4 class="name">Microsoft MSRC</h4>
+                            <span class="category">Microsoft MSRC</span>
+                          </figure>
+                          <figure class="item ctf-item" data-groups='["category_all", "category_mockups"]'>
+                            <div class="portfolio-item-img" onclick="showPortfolioPreview('img/portfolio/4.jpg', 'Microsoft MSRC')">
+                              <img src="img/portfolio/4.jpg" alt="CTFs" title="Microsoft MSRC" class="lazy-load" />
+                            </div>
+
                             <h4 class="name">NCIIPC Pentathon Collection [Semi-Final]</h4>
                             <span class="category">NCIIPC CTF</span>
                           </figure>
@@ -1673,6 +1787,26 @@
                                             </div>
                                         </div>
                                         <!-- End of Blog Post 4 -->
+                                        <!--Blog Post 5 -->
+                                        <div class="item post-2">
+                                            <div class="blog-card">
+                                                <div class="media-block">
+                                                    <div class="category">
+                                                        <a href="#" title="Amazon S3">Amazon S3</a>
+                                                    </div>
+                                                    <a href="https://sahil3276.medium.com/aws-s3-bucket-hacking-101-from-enumeration-to-exploitation-e3e2a2948eba" target="_blank">
+                                                        <img src="img/blog/S3Buckets.jpg" class="size-blog-masonry-image-two-c lazy-load" alt="AWS S3 Bucket Hacking" />
+                                                        <div class="mask"></div>
+                                                    </a>
+                                                </div>
+                                                <div class="post-info">
+                                                    <a href="https://sahil3276.medium.com/aws-s3-bucket-hacking-101-from-enumeration-to-exploitation-e3e2a2948eba" target="_blank">
+                                                        <h4 class="blog-item-title">AWS S3 Bucket Hacking</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End of Blog Post 5 -->
                                     </div>
                                 </div>
                             </div>
